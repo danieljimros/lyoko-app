@@ -22,9 +22,8 @@ function SimuladorTorres() {
           src="/torre.png"
           alt="Torre de Lyoko"
           style={{
-            width: "180px",
+            ...styles.torre,
             animation: activa ? "auraRojaLyoko 2.5s infinite" : "auraAzulLyoko 3s infinite",
-            transition: "0.5s ease",
           }}
         />
       </div>
@@ -59,7 +58,7 @@ const styles = {
   },
   torre: {
     width: "380px",
-    transition: "0.3s",
+    transition: "0.5s ease",
   },
   btn: {
     padding: "10px 20px",
