@@ -1,0 +1,27 @@
+.panel-control-container {
+  padding: 20px;
+  color: #0ff;
+  background: #111;
+  border-radius: 8px;
+}
+
+.panel-control-panel {
+  border: 2px solid #0ff;
+  padding: 15px;
+  margin-bottom: 20px;
+}
+
+.panel-control-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+
+.panel-control-logs {
+  border: 2px solid #0ff;
+  padding: 15px;
+  margin-top: 20px;
+  max-height: 200px;
+  overflow-y: auto;
+}

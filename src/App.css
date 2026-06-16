@@ -181,4 +181,9 @@
     right: 0;
     border-right-color: var(--border);
   }
+  
 }
+.ImagenHome{
+    width: 200px;
+    margin-top: 30px;
+  }
