@@ -2,6 +2,8 @@ import './App.css'
 import Menu from './Menu';
 import {useState} from "react";
 import PanelControl from "./components/PanelControl/PanelControl";
+import SimuladorTorres from "./components/SimuladorTorres/SimuladorTorres";
+
 
 export default function App() {
   const [section, setSection] = useState("panel");
@@ -15,7 +17,7 @@ export default function App() {
     <Menu onSelect = {setSection}/>
     <br/>
     {section === "panel" && <PanelControl/>}
-    {section === "torres" && <h2>Simulador de Torres</h2>}
+    {section === "torres" && <SimuladorTorres/>}
     {section === "escaner" && <h2>Escáner</h2>}
     {section === "minijuego" && <h2>Mini-juego</h2>}
     {section === "mapa" && <h2>Mapa de Lyoko</h2>}

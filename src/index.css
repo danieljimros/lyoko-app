@@ -1,6 +1,6 @@
 :root {
   --text: #6b6375;
-  --text-h: #08060d;
+  --text-h: #fefdff;
   --bg: #fff;
   --border: #e5e4e7;
   --code-bg: #f4f3ec;
@@ -109,3 +109,17 @@ code {
   padding: 4px 8px;
   background: var(--code-bg);
 }
+
+@keyframes auraAzulLyoko {
+  0% { filter: drop-shadow(0 0 40px rgba(0,255,255,0.75)) drop-shadow(0 0 10px rgba(0,255,255,0.95)); }
+  50% { filter: drop-shadow(0 0 75px rgba(0,255,255,1)) drop-shadow(0 0 22px rgba(0,255,255,1)); }
+  100% { filter: drop-shadow(0 0 40px rgba(0,255,255,0.75)) drop-shadow(0 0 10px rgba(0,255,255,0.95)); }
+}
+
+@keyframes auraRojaLyoko {
+  0% { filter: drop-shadow(0 0 40px rgba(255,0,0,0.75)) drop-shadow(0 0 10px rgba(255,0,0,0.95)); }
+  50% { filter: drop-shadow(0 0 75px rgba(255,0,0,1)) drop-shadow(0 0 22px rgba(255,0,0,1)); }
+  100% { filter: drop-shadow(0 0 40px rgba(255,0,0,0.75)) drop-shadow(0 0 10px rgba(255,0,0,0.95)); }
+}
+
+
