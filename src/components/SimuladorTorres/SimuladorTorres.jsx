@@ -2,6 +2,7 @@ import { useState } from "react";
 
 function SimuladorTorres() {
   const [activa, setActiva] = useState(false);
+  const [mostrarAlerta, setMostrarAlerta] = useState(false);
   const [logs, setLogs] = useState([]);
 
   const addLog = (msg) => {
@@ -9,8 +10,16 @@ function SimuladorTorres() {
   };
 
   const toggleTorre = () => {
-    setActiva(!activa);
-    addLog(!activa ? "Torre ACTIVADA" : "Torre DESACTIVADA");
+    if (!activa) {
+      setActiva(true);
+      setMostrarAlerta(true);
+      addLog("Torre ACTIVADA");
+      return;
+    }
+
+    setActiva(false);
+    setMostrarAlerta(false);
+    addLog("Torre DESACTIVADA");
   };
 
   return (
@@ -31,6 +40,18 @@ function SimuladorTorres() {
       <button style={styles.btn} onClick={toggleTorre}>
         {activa ? "Desactivar Torre" : "Activar Torre"}
       </button>
+
+      {mostrarAlerta && (
+        <div style={styles.popupOverlay}>
+          <div style={styles.popup}>
+            <h3 style={styles.popupTitle}>¡ALERTA XANA!</h3>
+            <img src="/XANA.png" alt="Torre de Lyoko en alerta" style={styles.popupImage} />
+            <button style={styles.btn} onClick={() => setMostrarAlerta(false)}>
+              Cerrar
+            </button>
+          </div>
+        </div>
+      )}
 
       <div style={styles.logs}>
         <h3>Registro</h3>
@@ -67,6 +88,39 @@ const styles = {
     cursor: "pointer",
     fontWeight: "bold",
     marginBottom: "20px",
+    alignSelf: "center",
+  },
+  popupOverlay: {
+    position: "fixed",
+    inset: 0,
+    background: "rgba(0, 0, 0, 0.75)",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    zIndex: 1000,
+  },
+  popup: {
+    background: "#111",
+    border: "2px solid #f00",
+    borderRadius: "12px",
+    padding: "20px",
+    width: "min(90vw, 460px)",
+    textAlign: "center",
+    boxShadow: "0 0 25px rgba(255, 0, 0, 0.8)",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    gap: "14px",
+  },
+  popupTitle: {
+    color: "#ff4d4d",
+    margin: 0,
+    letterSpacing: "1px",
+  },
+  popupImage: {
+    width: "220px",
+    maxWidth: "100%",
+    filter: "drop-shadow(0 0 14px rgba(255, 0, 0, 0.9))",
   },
   logs: {
     border: "2px solid #0ff",
